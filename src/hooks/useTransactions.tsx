@@ -14,12 +14,13 @@ interface TransactionsProviderProps {
     children: ReactNode;
 }
 
+type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
+
 interface TransactionsContextData {
     transactions: Transaction[];
     createTransaction: (transaction: TransactionInput) => Promise<void>;
 }
 
-type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
 
 
 const TransactionsContext = createContext({} as TransactionsContextData);
